@@ -1,0 +1,6 @@
+venv/
+yolov8n.pt
+cropped_bol/
+debug/
+.git/
+raw_bol/
