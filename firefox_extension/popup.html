@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Pobieranie zdjęć z Twittera</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      width: 320px;
+      padding: 16px;
+      background: #1e1e24;
+      color: #f3f4f6;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .header img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+    .header h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+    .badge-card {
+      background: #2b2b36;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border: 1px solid #3c3c4d;
+    }
+    .badge-card .label {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .badge-card .count {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e68c1e;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #d1d5db;
+    }
+    .input-wrapper {
+      position: relative;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      background: #141418;
+      border: 1px solid #4b5563;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus {
+      border-color: #e68c1e;
+    }
+    .hint {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 5px;
+      word-break: break-all;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 9px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .btn-primary {
+      background: #e68c1e;
+      color: #ffffff;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: #cc7714;
+    }
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #9ca3af;
+      border: 1px solid #3c3c4d;
+      font-size: 12px;
+      padding: 6px;
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: #2b2b36;
+      color: #d1d5db;
+    }
+    .status {
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: center;
+      min-height: 16px;
+      color: #60a5fa;
+      font-weight: 500;
+    }
+    .status.success {
+      color: #4ade80;
+    }
+    .status.error {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon.png" alt="Icon">
+    <h1>Manul Twitter Extractor</h1>
+  </div>
+
+  <div class="badge-card">
+    <span class="label">Zebrane unikalne zdjęcia:</span>
+    <span class="count" id="count">0</span>
+  </div>
+
+  <div class="form-group">
+    <label for="folderInput">Folder docelowy:</label>
+    <div class="input-wrapper">
+      <input type="text" id="folderInput" spellcheck="false" placeholder="np. manul_twitter_01 lub manule/bol">
+    </div>
+    <div class="hint" id="pathPreview">Zapis w: ~/Pobrane/manul_twitter/</div>
+  </div>
+
+  <div class="btn-group">
+    <button id="downloadBtn" class="btn-primary">Pobierz zdjęcia</button>
+    <button id="clearBtn" class="btn-secondary">Wyczyść zebraną listę</button>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "name": "Manul Twitter Image Extractor",
+  "version": "1.2",
+  "description": "Przechwytuje zdjęcia z ruchu sieciowego i DOM Twittera/X i pobiera je w oryginalnej jakości do wybranego folderu.",
+  "permissions": [
+    "webRequest",
+    "<all_urls>",
+    "downloads",
+    "storage",
+    "tabs",
+    "activeTab",
+    "*://*.twitter.com/*",
+    "*://*.x.com/*",
+    "*://pbs.twimg.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.twitter.com/*",
+        "*://*.x.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Manul Twitter Image Extractor",
+    "default_icon": {
+      "48": "icons/icon.png",
+      "96": "icons/icon96.png"
+    },
+    "default_popup": "popup.html",
+    "default_area": "navbar"
+  },
+  "icons": {
+    "48": "icons/icon.png",
+    "96": "icons/icon96.png"
+  }
+}

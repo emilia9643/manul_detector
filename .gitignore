@@ -1,0 +1,14 @@
+venv/
+yolov8n.pt
+cropped_bol/
+debug/
+.git/
+raw_bol/
+data/
+opracowanie.tex
+manul_dataset.zip
+notatka_projekt.tex
+wprowadzenie-2.pdf
+projekt_opis-4.pdf
+notes.md
+__pycache__
