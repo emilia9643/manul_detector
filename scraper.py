@@ -23,8 +23,8 @@ MANULS = [
         "url": "https://manulization.com/manuls/nagomu/photos-and-videos",
     },
     {
-        "name": "prinsessa",
-        "url": "https://manulization.com/manuls/prinsessa/photos-and-videos",
+        "name": "abrikos",
+        "url": "https://manulization.com/manuls/abrikos/photos-and-videos",
     },
 ]
 
